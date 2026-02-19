@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ingredient Detector</title>
+    <link rel="stylesheet" href="frontend_css.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🍕 Food Ingredient Detector</h1>
+            <p>Upload a food image and discover its ingredients</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept="image/png, image/jpeg, image/jpg" hidden>
+                <button id="uploadBtn" class="upload-btn">Choose Image</button>
+                <p class="file-info">Max 5MB • JPG, PNG only</p>
+            </div>
+
+            <div id="previewSection" class="preview-section hidden">
+                <h3>Selected Image</h3>
+                <img id="previewImage" alt="Preview">
+                <button id="analyzeBtn" class="analyze-btn">Analyze Food</button>
+            </div>
+
+            <div id="loadingSection" class="loading-section hidden">
+                <div class="loader"></div>
+                <p>Analyzing your food image...</p>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <div class="food-detected">
+                    <h2>Detected Food</h2>
+                    <div class="food-name" id="foodName"></div>
+                    <div class="confidence">
+                        <span>Confidence:</span>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <span id="confidenceText"></span>
+                    </div>
+                </div>
+
+                <div class="ingredients-list">
+                    <h2>Ingredients</h2>
+                    <div id="ingredientsList"></div>
+                </div>
+
+                <div class="recipe-section">
+                    <button id="getRecipeBtn" class="recipe-btn">👨‍🍳 Get Recipe</button>
+                    <div id="recipeContent" class="recipe-content hidden"></div>
+                    <div id="recipeLoading" class="recipe-loading hidden">
+                        <div class="small-loader"></div>
+                        <p>Generating recipe...</p>
+                    </div>
+                </div>
+
+                <button id="resetBtn" class="reset-btn">Upload Another Image</button>
+            </div>
+
+            <div id="errorSection" class="error-section hidden">
+                <div class="error-icon">⚠️</div>
+                <h3>Error</h3>
+                <p id="errorMessage"></p>
+                <button id="retryBtn" class="reset-btn">Try Again</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by MobileNetV2 & TensorFlow</p>
+        </footer>
+    </div>
+
+    <script src="frontend_js.js"></script>
+</body>
+
+</html>
